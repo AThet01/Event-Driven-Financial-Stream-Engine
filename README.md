@@ -49,7 +49,7 @@ streaming-pipeline-project/
 ---
 ### 1. Clone & Navigate to the Project Root
 ```Bash
-git clone [https://github.com/yourusername/streaming-pipeline-project.git](https://github.com/yourusername/streaming-pipeline-project.git)
+git clone [https://github.com/AThet01/Event-Driven-Financial-Stream-Engine](https://github.com/AThet01/Event-Driven-Financial-Stream-Engine)
 cd streaming-pipeline-project
 ```
 ### 2. Launch the Kafka Event Broker via Docker
