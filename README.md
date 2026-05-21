@@ -45,6 +45,22 @@ streaming-pipeline-project/
 ├── app.py                 # Streamlit UI engine managing analytical metric states and live charts
 ├── requirements.txt       # Environment dependencies and pinned core libraries
 └── README.md              # Comprehensive project portfolio documentation
+```
+---
+### 1. Clone & Navigate to the Project Root
+```Bash
+git clone [https://github.com/yourusername/streaming-pipeline-project.git](https://github.com/yourusername/streaming-pipeline-project.git)
+cd streaming-pipeline-project
+```
+### 2. Launch the Kafka Event Broker via Docker
 
+Execute the compose file in detached mode to instantiate the network backplanes:
+```Bash
+docker-compose up -d
+```
+Verify that the cluster initialized successfully by running docker ps to check that both the Kafka and Zookeeper containers display a healthy status.
 
-
+### 3.# Install required external packages
+```
+pip install -r requirements.txt
+```
