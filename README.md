@@ -40,3 +40,6 @@ The pipeline is built on an **Event-Driven Architecture (EDA)** that enforces a 
                                      │
                          [ INFRASTRUCTURE ORCHESTRATION ]
                                Docker & Docker Compose
+
+---
+
