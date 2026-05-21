@@ -59,4 +59,30 @@ streaming-pipeline-project/
 git clone [https://github.com/AThet01/Event-Driven-Financial-Stream-Engine](https://github.com/AThet01/Event-Driven-Financial-Stream-Engine)
 cd streaming-pipeline-project
 ```
+## 2. Launch the Kafka Event Broker via Docker
 
+Execute the compose file in detached mode to instantiate the network backplanes:
+```
+docker-compose up -d
+```
+Verify that the cluster initialized successfully by running docker ps to check that both the Kafka and Zookeeper containers display a healthy status.
+
+## 3. Initialize Python Virtual Environment & Install Dependencies
+```
+python -m venv venv
+```
+# Install required external packages
+pip install -r requirements.txt
+
+## 4. Execute the Pipeline Engine (Run in Separate Terminal Tabs)
+
+To observe the pipeline end-to-end, open three independent terminal sessions inside your project directory (with your virtual environment activated):
+```
+ python producer.py
+```
+```
+python consumer.py
+```  
+```
+streamlit run app.py
+```
