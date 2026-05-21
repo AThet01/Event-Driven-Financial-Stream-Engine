@@ -23,5 +23,40 @@ This repository showcases a production-ready, event-driven data engineering proj
 
 The pipeline is built on an **Event-Driven Architecture (EDA)** that enforces a strict separation of concerns among data ingestion, message brokerage, stream processing, and consumer visualization.
 
+---
 
+## Architectural Highlights
+* **Decoupled Components:** The data source (`producer.py`) has zero dependency or knowledge of the downstream visualization layer (`app.py`). If the dashboard goes offline, Kafka handles backpressure and safely buffers events to prevent any data loss.
+* **On-the-Fly Stream Cleaning:** Rather than dropping messy raw payloads straight into storage, the processing layer parses metadata schemas, handles data validation, filters out corrupted system failures, and normalizes numeric values in real time.
+* **Infrastructure as Code (IaC):** The complete multi-container event brokerage network is fully containerized via Docker, allowing any developer to stand up the production-grade pipeline with a single command string.
+
+---
+
+## ⚡ Features
+
+- **Sub-Second Event Processing:** Eradicates standard 24-hour batch window latencies, enabling immediate operational visibility.
+- **Robust Exception and Protocol Handling:** Script definitions leverage explicit Kafka protocol configurations (`api_version`) to ensure smooth handshakes and strict schema validation between client drivers and server containers.
+- **Memory-Optimized Aggregation:** Implements a sliding time-window model on the consumer end to prevent runtime memory leaks during heavy payload delivery.
+- **Dynamic Chart Re-rendering:** Uses an interactive reactive layout that updates summary metrics, distribution metrics, and rolling audit logs automatically.
+
+---
+
+## 📂 Project Repository Structure
+
+```text
+streaming-pipeline-project/
+│
+├── docker-compose.yml     # Multi-container orchestration configurations for Kafka & Zookeeper
+├── producer.py            # Event simulator emitting mock financial payloads to Kafka
+├── consumer.py            # Stream parser running inline validations, filtering, and data cleansing
+├── app.py                 # Streamlit UI engine managing analytical metric states and live charts
+├── requirements.txt       # Environment dependencies and pinned core libraries
+└── README.md              # Comprehensive project portfolio documentation
+```
+---
+## 1. Clone & Navigate to the Project Root
+```
+git clone [https://github.com/AThet01/Event-Driven-Financial-Stream-Engine](https://github.com/AThet01/Event-Driven-Financial-Stream-Engine)
+cd streaming-pipeline-project
+```
 
