@@ -24,3 +24,19 @@ This repository showcases a production-ready, event-driven data engineering proj
 ## 🏗️ System Architecture
 
 The pipeline is built on an **Event-Driven Architecture (EDA)** that enforces a strict separation of concerns among data ingestion, message brokerage, stream processing, and consumer visualization.
+
+---
+[ INGESTION LAYER ]               [ BROKER LAYER ]              [ PROCESSING LAYER ]          [ CONSUMER VISUALIZATION ]
+ ┌──────────────────────┐        ┌──────────────────────┐        ┌──────────────────────┐        ┌────────────────────────┐
+ │     producer.py      │        │     Apache Kafka     │        │     consumer.py      │        │         app.py         │
+ │ ──────────────────── │        │ ──────────────────── │        │ ──────────────────── │        │ ────────────────────── │
+ │  Simulates live API  │ ───►   │ Topic: `transactions`│ ───►   │ Streams data on the  │ ───►   │ Renders a real-time    │
+ │  e-commerce purchase │        │ Retains message logs │        │ fly, filters failure │        │ metrics dashboard & DB │
+ │  events as JSON bytes│        │ sequentially on disk │        │ events, cleans schema│        │ analytics with Pandas  │
+ └──────────────────────┘        └──────────────────────┘        └──────────────────────┘        └────────────────────────┘
+             ▲                              ▲                                
+             │                              │                                
+             └───────────────────────┬──────┴────────────────────────────────┘
+                                     │
+                         [ INFRASTRUCTURE ORCHESTRATION ]
+                               Docker & Docker Compose
