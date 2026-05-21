@@ -72,15 +72,15 @@ To observe the pipeline end-to-end, open three independent terminal sessions ins
     ```Bash
 
     python producer.py
-    ```
+```
     Run the Processing Consumer:
     ```Bash
 
     python consumer.py
-    ```
+```
     Launch the Visualization Dashboard:
     ```Bash
 
     streamlit run app.py
-    ```
+```
 The Streamlit web server will automatically boot up your default web browser to http://localhost:8501, showcasing live analytical metrics updating dynamically in real time.
